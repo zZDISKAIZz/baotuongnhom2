@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Báo tường Du lịch - Khám phá những chân trời mới</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #fef9f0;
+            color: #1e2a2f;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .wallpaper-header {
+            background: linear-gradient(135deg, #0b3b3f 0%, #1c5c5c 100%);
+            color: white;
+            padding: 2rem 1rem 1.8rem;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+            border-bottom: 6px solid #f7c873;
+        }
+
+        .wallpaper-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            letter-spacing: -0.5px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .wallpaper-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0.8rem auto 0;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        .header-decoration {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            font-size: 1rem;
+            font-weight: 500;
+            flex-wrap: wrap;
+        }
+
+        .header-decoration span i {
+            margin-right: 8px;
+            color: #f7c873;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 2rem auto;
+            padding: 0 24px;
+        }
+
+        .newspaper-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        .main-article {
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+
+        .hero-img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+            border-bottom: 4px solid #f7c873;
+        }
+
+        .article-content {
+            padding: 1.8rem 2rem 2rem;
+        }
+
+        .article-category {
+            display: inline-block;
+            background: #e6d5b8;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #4a3b1c;
+            margin-bottom: 1rem;
+        }
+
+        .article-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1e4a4f;
+            line-height: 1.2;
+        }
+
+        .meta {
+            display: flex;
+            gap: 1.2rem;
+            font-size: 0.85rem;
+            color: #6c757d;
+            border-bottom: 1px dashed #e2dccd;
+            padding-bottom: 0.8rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .meta i {
+            margin-right: 5px;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #2c5a5e;
+            border-left: 4px solid #f7c873;
+            padding-left: 1rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .article-content p {
+            margin-bottom: 1rem;
+            color: #2d3e42;
+        }
+
+        .highlight-box {
+            background: #fef5e7;
+            padding: 1.2rem 1.5rem;
+            border-radius: 20px;
+            margin: 1.5rem 0;
+            border-left: 6px solid #f7b32b;
+            font-style: italic;
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            overflow: hidden;
+            transition: all 0.2s;
+        }
+
+        .card-header {
+            background: #2c5a5e;
+            color: white;
+            padding: 1rem 1.5rem;
+            font-weight: 700;
+            font-size: 1.3rem;
+            letter-spacing: -0.2px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-header i {
+            font-size: 1.3rem;
+        }
+
+        .card-content {
+            padding: 1.3rem 1.5rem;
+        }
+
+        .dest-list {
+            list-style: none;
+        }
+
+        .dest-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #f0e5d2;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+        }
+
+        .dest-list li i {
+            width: 28px;
+            color: #f7b32b;
+            font-size: 1.2rem;
+        }
+
+        .badge-tip {
+            background: #eef2f0;
+            border-radius: 50px;
+            padding: 0.2rem 0.8rem;
+            font-size: 0.7rem;
+            font-weight: bold;
+            color: #1e5a5e;
+        }
+
+        .quote {
+            font-style: italic;
+            color: #2c5a5e;
+            font-weight: 500;
+            border-top: 2px dotted #e6d5b8;
+            margin-top: 0.8rem;
+            padding-top: 0.8rem;
+        }
+
+        .mini-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 1rem 0;
+        }
+
+        .mini-gallery img {
+            width: 100%;
+            height: 85px;
+            object-fit: cover;
+            border-radius: 16px;
+            transition: 0.2s;
+            cursor: pointer;
+            border: 1px solid #e9e0cf;
+        }
+
+        .more-stories {
+            margin-top: 3rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-left: 6px solid #f7c873;
+            padding-left: 1rem;
+            color: #1e4a4f;
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+        }
+
+        .story-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.25s ease;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.05);
+        }
+
+        .story-card img {
+            width: 100%;
+            height: 170px;
+            object-fit: cover;
+        }
+
+        .story-text {
+            padding: 1rem 1.2rem 1.3rem;
+        }
+
+        .story-text h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .story-text p {
+            font-size: 0.9rem;
+            color: #4f5e62;
+        }
+
+        footer {
+            background: #102b2e;
+            color: #ddddbb;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 850px) {
+            .newspaper-grid {
+                grid-template-columns: 1fr;
+            }
+            .wallpaper-header h1 {
+                font-size: 2.2rem;
+            }
+            .article-content {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .hero-img {
+                height: 200px;
+            }
+        }
+
+        .story-card:hover, .card:hover, .main-article:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.15);
+        }
+
+        button, .interactive {
+            transition: all 0.2s;
+        }
+    </style>
+</head>
+<body>
+
+<header class="wallpaper-header">
+    <h1>📸 NHỊP ĐIỆU DU LỊCH</h1>
+    <p>Báo tường khám phá - Góc nhìn đa sắc màu về những miền đất</p>
+    <div class="header-decoration">
+        <span><i class="fas fa-map-marker-alt"></i> Hành trình xanh</span>
+        <span><i class="fas fa-camera-retro"></i> Khoảnh khắc đẹp</span>
+        <span><i class="fas fa-hiking"></i> Trải nghiệm bản địa</span>
+    </div>
+</header>
+
+<div class="container">
+    <div class="newspaper-grid">
+        <!-- Bài viết chính -->
+        <div class="main-article">
+            <img class="hero-img" src="https://www.vietnambooking.com/wp-content/uploads/2020/12/san-may-tay-bac-bach-moc-luong-tu-5.jpg" alt="Phong cảnh núi non Tây Bắc hùng vĩ">
+            <div class="article-content">
+                <span class="article-category"><i class="fas fa-mountain-sun"></i> ĐIỂM ĐẾN HOT</span>
+                <h2>“Những cung đường săn mây Tây Bắc – Tây Nguyên: Vẻ đẹp vượt thời gian”</h2>
+                <div class="meta">
+                    <span><i class="far fa-calendar-alt"></i> 29.03.2026</span>
+                    <span><i class="far fa-user"></i> Ban biên tập Lữ Hành 12C2</span>
+                    <span><i class="far fa-comment"></i> 12 bình luận</span>
+                </div>
+                <div class="intro-text">
+                    Từ Mù Cang Chải, đèo Ô Quy Hồ đến cao nguyên Mộc Châu – mỗi cung đường là một bức tranh thiên nhiên làm say đắm lòng người. Hãy cùng chúng tôi lên đường tìm lại sự bình yên và những câu chuyện văn hóa độc đáo.
+                </div>
+                <p>Du lịch không chỉ là đến một nơi, mà là được sống những khoảnh khắc khác biệt. Những thửa ruộng bậc thang vàng óng dưới nắng, những bản làng sương mờ ảo, tiếng khèn, điệu múa xòe... tất cả tạo nên bản hòa ca khó quên. <strong>Hãy dành trọn vẹn một mùa để cảm nhận!</strong></p>
+                <div class="highlight-box">
+                    <i class="fas fa-quote-left" style="margin-right: 8px; color:#f7b32b;"></i> Mẹo nhỏ: Mang theo áo ấm, máy ảnh và tâm thế cởi mở, bạn sẽ có chuyến đi viên mãn. Đừng quên tìm hiểu phong tục địa phương để có trải nghiệm chân thật nhất.
+                </div>
+                <p>Bên cạnh cảnh sắc, ẩm thực vùng cao cũng là điểm nhấn: thắng cố, cơm lam, rượu táo mèo… Mỗi món ăn đều chứa đựng tình người và nét văn hóa lâu đời. Hãy dạo bước trong chợ phiên, trò chuyện với người dân tộc, bạn sẽ mang về nhiều hơn cả những tấm ảnh.</p>
+                <p style="margin-top: 6px;"><i class="fas fa-feather-alt"></i> <em>“Đi một ngày đàng, học một sàng khôn” – báo tường chúng tôi tin rằng du lịch mở mang tri thức và tâm hồn.</em></p>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-umbrella-beach"></i> Gợi ý điểm đến 2026
+                </div>
+                <div class="card-content">
+                    <ul class="dest-list">
+                        <li><i class="fas fa-water"></i> Vịnh Hạ Long – Kỳ quan thế giới</li>
+                        <li><i class="fas fa-tree"></i> Sapa – Thị trấn mây ngàn</li>
+                        <li><i class="fas fa-city"></i> Hội An – Cổ kính bên sông Hoài</li>
+                        <li><i class="fas fa-volcano"></i> Đà Lạt – Thành phố ngàn hoa</li>
+                        <li><i class="fas fa-mountain"></i> Phong Nha – Kẻ Bàng</li>
+                    </ul>
+                    <div class="quote">
+                        <i class="fas fa-globe-asia"></i> “Khám phá Việt Nam – bản đồ di sản rực rỡ”
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-lightbulb"></i> Tip & tương tác
+                </div>
+                <div class="card-content">
+                    <p style="margin-bottom: 12px; font-weight: 600;"><i class="fas fa-backpack"></i>  Bí kíp tiết kiệm khi đi du lịch:</p>
+                    <ul style="margin-left: 1.5rem; margin-bottom: 16px;">
+                        <li>✓ Đặt vé máy bay sớm 2-3 tháng</li>
+                        <li>✓ Lưu trú homestay thay vì khách sạn</li>
+                        <li>✓ Săn voucher ẩm thực trên các app</li>
+                    </ul>
+                    <div id="randomTip" style="background: #fef0d9; border-radius: 20px; padding: 10px 15px; margin: 10px 0; font-size: 0.9rem; border-left: 3px solid #f7b32b;">
+                        💡 Tip: Luôn mang theo chai nước cá nhân và túi vải – du lịch xanh bảo vệ môi trường.
+                    </div>
+                    <button id="changeTipBtn" style="background: #2c5a5e; border: none; color: white; padding: 8px 16px; border-radius: 40px; cursor: pointer; font-weight: 600; width: 100%; margin-top: 8px;"><i class="fas fa-sync-alt"></i> Nhận mẹo mới</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-images"></i> Khoảnh khắc ghi lại
+                </div>
+                <div class="card-content">
+                    <div class="mini-gallery">
+                        <img src="https://phuotvivu.com/blog/wp-content/uploads/2021/09/mu-cang-chai-mua-lua-chin.jpeg" alt="Ruộng bậc thang Mù Cang Chải">
+                        <img src="https://ik.imagekit.io/tvlk/blog/2023/10/BMtB3OPW-anhvo2804-180216040226-Hoi-an-1.jpg" alt="Phố cổ Hội An về đêm">
+                        <img src="https://vcdn1-dulich.vnecdn.net/2024/02/23/halong-bay-1708653747-3993-170-5513-5553-1708656553.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=bSI4v21l1XFuus1588UKZQ" alt="Vịnh Hạ Long">
+                        <img src="https://www.dalattrip.com/dulich/media/2017/12/thanh-pho-da-lat.jpg" alt="Đà Lạt mộng mơ">
+                        <img src="https://img.cand.com.vn/resize/800x800/NewFiles/Images/2023/03/03/84c0777c7c31956fcc20-1677831016170.jpg" alt="Hang động Phong Nha">
+                        <img src="https://motogo.vn/wp-content/uploads/2020/02/doi-che-moc-chau.jpg" alt="Cánh đồng hoa cải vàng">
+                    </div>
+                    <p style="font-size: 0.75rem; margin-top: 10px; text-align: center; color: #5e6e66;"><i class="fas fa-camera"></i> Nhấp vào ảnh để xem thông điệp</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Phần bài viết phụ -->
+    <div class="more-stories">
+        <div class="section-title">
+            <i class="fas fa-newspaper"></i> Góc nhìn đa chiều – Câu chuyện du lịch
+        </div>
+        <div class="story-grid">
+            <div class="story-card">
+                <img src="https://laodongthudo.vn/stores/news_dataimages/ducha/062021/17/08/4347_0002.jpg?rt=20210617084350" alt="Ẩm thực đường phố Hà Nội">
+                <div class="story-text">
+                    <h3>Ẩm thực chạm ngõ Hà thành</h3>
+                    <p>Phở, bún chả, cà phê trứng – hương vị đặc trưng khiến bất cứ du khách nào cũng nhớ mãi.</p>
+                </div>
+            </div>
+            <div class="story-card">
+                <img src="https://statics.vinpearl.com/lan-bien-phu-quoc-5_1628671421.jpg" alt="Du lịch biển Phú Quốc">
+                <div class="story-text">
+                    <h3>Lặn ngắm san hô Phú Quốc</h3>
+                    <p>Hòn thơm, hòn Móng Tay – làn nước trong veo, hệ sinh thái biển rực rỡ sắc màu.</p>
+                </div>
+            </div>
+            <div class="story-card">
+                <img src="https://motogo.vn/wp-content/uploads/2023/04/homestay-ban-lac-5.jpg" alt="Homestay bản làng dân tộc">
+                <div class="story-text">
+                    <h3>Homestay bản làng – Du lịch có trách nhiệm</h3>
+                    <p>Trải nghiệm sống cùng người dân, học dệt thổ cẩm, thưởng thức đặc sản địa phương.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="background: #fff6ea; border-radius: 30px; padding: 1.2rem 1.5rem; margin-top: 2rem; text-align: center; border: 1px solid #f7e3bf;">
+        <i class="fas fa-pen-fancy" style="font-size: 1.8rem; color: #c1771e;"></i>
+        <p style="margin-top: 8px; font-weight: 500;">🌏 Thành viên : 09, 29, 42, 43</p>
+        <div style="font-size: 0.8rem; margin-top: 5px;">✨ Mỗi chuyến đi đều là một trang viết mới ✨</div>
+    </div>
+</div>
+
+<footer>
+    <p style="margin-top: 8px;"><i class="fas fa-leaf"></i> Hãy du lịch có trách nhiệm, giữ gìn vẻ đẹp thiên nhiên và di sản văn hóa.</p>
+</footer>
+
+<script>
+    // Mảng tips
+    const tipsArray = [
+        "💡 Tip: Mang theo bộ sạc dự phòng và túi chống nước – hữu ích cho mọi chuyến đi.",
+        "🍜 Tip: Hãy thử món ăn địa phương ở quán có đông người bản địa, vừa ngon vừa an toàn.",
+        "📸 Tip: Giờ vàng săn ảnh đẹp là 30 phút sau bình minh và trước hoàng hôn.",
+        "🧳 Tip: Dùng app lưu trữ ảnh đám mây, đề phòng mất điện thoại vẫn có kỷ niệm.",
+        "🏕 Tip: Nên mua bảo hiểm du lịch dù đi ngắn ngày, an tâm khám phá.",
+        "💚 Tip: Hạn chế rác thải nhựa, mang theo bình nước cá nhân – vì một hành tinh xanh."
+    ];
+
+    const tipElement = document.getElementById('randomTip');
+    const changeBtn = document.getElementById('changeTipBtn');
+
+    function getRandomTip() {
+        const randomIndex = Math.floor(Math.random() * tipsArray.length);
+        return tipsArray[randomIndex];
+    }
+
+    function updateTip() {
+        tipElement.innerHTML = getRandomTip();
+    }
+
+    changeBtn.addEventListener('click', updateTip);
+
+    // Tương tác gallery
+    const galleryImages = document.querySelectorAll('.mini-gallery img');
+    const imageMessages = [
+        "🌾 Ruộng bậc thang Mù Cang Chải - Mùa vàng rực rỡ, tuyệt tác giữa đất trời Tây Bắc.",
+        "🏮 Hội An về đêm - Lung linh sắc màu, nơi thời gian chậm lại.",
+        "⛵ Vịnh Hạ Long - Kỳ quan thiên nhiên thế giới, hòn đảo ngàn năm.",
+        "🌸 Đà Lạt - Thành phố mộng mơ, tình yêu đọng lại trong từng cơn mưa nhẹ.",
+        "🌳 Hang Sơn Đoòng - Kỳ vĩ bậc nhất hành tinh, điểm đến của những nhà thám hiểm.",
+        "🌼 Mộc Châu - Đồi chè xanh ngát, hoa cải vàng trải dài bất tận."
+    ];
+    
+    for(let i = 0; i < galleryImages.length; i++) {
+        galleryImages[i].addEventListener('click', (function(idx) {
+            return function() {
+                alert("📷 " + imageMessages[idx]);
+            };
+        })(i));
+    }
+    
+    // Story card interaction
+    const storyCards = document.querySelectorAll('.story-card');
+    const storyMessages = [
+        "🍜 Hà Nội - Top 10 thiên đường ẩm thực đường phố thế giới!",
+        "🐠 Phú Quốc - Lặn ngắm san hô, ngắm hoàng hôn trên bãi biển đẹp nhất nhì Việt Nam.",
+        "🏡 Bản làng - Trải nghiệm văn hóa bản địa, gìn giữ nét đẹp truyền thống."
+    ];
+    
+    for(let i = 0; i < storyCards.length && i < storyMessages.length; i++) {
+        storyCards[i].addEventListener('click', function() {
+            alert("✨ Khám phá: " + storyMessages[i]);
+        });
+    }
+
+    console.log("🌏 Báo tường du lịch với hình ảnh trực quan đã sẵn sàng!");
+</script>
+</body>
+</html>
